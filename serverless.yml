@@ -1,0 +1,26 @@
+service: serverles-service
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: prod
+  region: us-east-1
+
+functions:
+  echo:
+    handler: handler.echo
+    events:
+      - http:
+         path: echo
+         method: any
+         cors: true
+
+plugins:
+ - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    packager: 'npm'
+    includeModules:
+      forceExclude:
+        - aws-sdk
