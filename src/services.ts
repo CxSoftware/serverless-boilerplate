@@ -1,10 +1,12 @@
 
 // Local
-import runner from './util/runner';
+import runner from '@/util/runner';
 
 // Functions
-import echo from './api/echo';
+// Test
+import echo from '@/api/echo';
 
 module.exports = {
-	echo: runner (echo)
+	// Test
+	echo: runner (echo),
 };
