@@ -9,7 +9,10 @@
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
+    "@types/aws-lambda": "^8.10.11",
     "@types/node": "^10.1.2",
+    "@types/uuid": "^3.4.3",
+    "aws-lambda": "^0.1.2",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-tslint": "^8.1.3",
