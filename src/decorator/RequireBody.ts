@@ -5,7 +5,7 @@ import Endpoint from '@/Endpoint';
 
 export class RequireBody extends Condition
 {
-	constructor ()
+	public constructor ()
 	{
 		super ();
 	}

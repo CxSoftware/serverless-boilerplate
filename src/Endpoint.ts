@@ -14,7 +14,7 @@ export default class Endpoint
 
 	// Constructor
 
-	constructor ()
+	public constructor ()
 	{
 	}
 

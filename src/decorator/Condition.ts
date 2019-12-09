@@ -8,14 +8,14 @@ export class Condition
 {
 	// Fields
 
-	public errorMessage = `Doesn't fullfill condition`;
+	public errorMessage = 'Doesn\'t fullfill condition';
 	public lambda: any;
 
 
 
 	// Constructor
 
-	constructor (lambda: any = null, errorMessage: string | null = null)
+	public constructor (lambda: any = null, errorMessage: string | null = null)
 	{
 		this.lambda = lambda;
 		if (errorMessage)

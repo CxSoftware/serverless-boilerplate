@@ -1,7 +1,7 @@
 
 export default class PublicError extends Error
 {
-	constructor (message: string)
+	public constructor (message: string)
 	{
 		super (message);
 	}

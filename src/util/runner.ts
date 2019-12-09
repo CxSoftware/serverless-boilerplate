@@ -11,7 +11,7 @@ const DEFAULT_ERROR_MESSAGE = 'Error interno';
 const HEADERS = { 'Access-Control-Allow-Origin': '*' };
 
 // Export
-export default (Class: { new () : Endpoint }) => (event: APIGatewayEvent, context: Context, callback: Callback) =>
+export default (Class: new () => Endpoint) => (event: APIGatewayEvent, context: Context, callback: Callback) =>
 {
 	(async () =>
 	{

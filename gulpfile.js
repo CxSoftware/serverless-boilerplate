@@ -1,24 +1,32 @@
 // Dependencies
 const gulp = require ('gulp');
-const clean = require('gulp-clean');
+const gulpClean = require('gulp-clean');
 const ts = require ('gulp-typescript');
-const tslint = require ('gulp-tslint');
+const eslint = require ('gulp-eslint');
 
 const tsProject = ts.createProject ('tsconfig.json');
 
 // Tasks
-gulp.task ('clean', () => gulp
-	.src ('dist', { read: false })
-	.pipe (clean ()));
+const clean = () => gulp
+	.src ('dist', { allowEmpty: true, read: false })
+	.pipe (gulpClean ());
 
-gulp.task ('lint', () => gulp
+const lint = () => gulp
 	.src ('src/**/*.ts')
-	.pipe (tslint ({ formatter: 'stylish' }))
-	.pipe (tslint.report()));
+	.pipe (eslint ())
+        .pipe(eslint.format())
+        .pipe(eslint.failAfterError());
 
-gulp.task ('build', ['clean', 'lint'], () => gulp
+const compile = () => gulp
 	.src ('src/**/*.ts')
 	.pipe (tsProject())
-	.pipe (gulp.dest ('dist')));
+	.pipe (gulp.dest ('dist'));
+const build = gulp.series (
+	gulp.parallel (clean, lint),
+	compile);
 
-gulp.task ('default', ['build']);
+// Export
+exports.clean = clean;
+exports.lint = lint;
+exports.build = build;
+exports.default = gulp.series (build);

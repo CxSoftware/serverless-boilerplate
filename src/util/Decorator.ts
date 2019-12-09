@@ -11,7 +11,7 @@ export default class Decorator
 		};
 	}
 
-	public static get <T> (target: any, ctor: { new () : T }) : T | null
+	public static get <T> (target: any, ctor: new ()  => T) : T | null
 	{
 		if (!target.decorators)
 			return null;
@@ -22,7 +22,7 @@ export default class Decorator
 			(d: any) => d instanceof ctor);
 	}
 
-	public static getAll <T> (target: any, ctor: { new () : T }) : T[]
+	public static getAll <T> (target: any, ctor: new ()  => T) : T[]
 	{
 		if (!target.decorators)
 			return [];
